@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Comprarei</string>
+    <string name="label_produto">Produto</string>
+    <string name="labal_marca">Marca</string>
+    <string name="label_opcional">(Opcional)</string>
+    <string name="label_valor">Valor</string>
+    <string name="label_quantidade">Quantidade</string>
+    <string name="labal_btn_cadastrar">Cadastrar</string>
+    <string name="descricao_fab_mais">Adicionar quantidade de produtos</string>
+    <string name="descricao_fab_menos">Botao para reduzir a quantidade do produto</string>
+    <string name="label_nova_compra">Nova compra</string>
+    <string name="hint_nome_compra">Nome da compra</string>
+    <string name="hint_data_compra">Data (dd/MM/aaaa)</string>
+    <string name="mensagem_data_branco">Em branco, pega a data de hoje</string>
+    <string name="error_nome_vazio">Nome inválido</string>
+    <string name="label_btn_ok">Ok</string>
+    <string name="label_btn_cancelar">Cancelar</string>
+    <string name="label_valor_produto">Valor unitário: </string>
+    <string name="descricao_fab_nova_compra">Botão nova compra</string>
+    <string name="descricao_fab_novo_produto">Botao adiciona produto</string>
+    <string name="label_valor_total_produto">Valor total:</string>
+    <string name="label_item_produto">Itens:</string>
+    <string name="descricao_appbar_search">Pesquisar item</string>
+    <string name="label_pesquisa">pesquisa</string>
+    <string name="descricao_appbar_codigo_de_barra">ler código de barra</string>
+    <string name="label_codigo_de_barra">Ler código de barras</string>
+</resources>

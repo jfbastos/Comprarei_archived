@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textAlignment="center">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/custom_appbar_produto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/formulario_produto_titulo_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/josefin_sans_bold"
+        android:text="@string/label_produto"
+        android:textColor="@color/dark_green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/formulario_produto_layout_nome_produto"
+        app:layout_constraintStart_toStartOf="@id/formulario_produto_layout_nome_produto" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/formulario_produto_layout_nome_produto"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        app:endIconMode="clear_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.17000002">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/formulario_produto_texto_nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/josefin_sans_bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/formulario_produto_titulo_marca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/josefin_sans_bold"
+        android:text="@string/labal_marca"
+        android:textColor="@color/dark_green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/formulario_produto_layout_marca"
+        app:layout_constraintStart_toStartOf="@id/formulario_produto_layout_marca" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/josefin_sans_bold"
+        android:text="@string/label_opcional"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/formulario_produto_layout_marca"
+        app:layout_constraintEnd_toEndOf="@id/formulario_produto_layout_marca" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/formulario_produto_layout_marca"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="35dp"
+        app:endIconMode="clear_text"
+        app:layout_constraintStart_toStartOf="@+id/formulario_produto_layout_nome_produto"
+        app:layout_constraintTop_toBottomOf="@+id/formulario_produto_layout_nome_produto">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/formulario_produto_texto_marcar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/josefin_sans_bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/formulario_produto_titulo_valor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/josefin_sans_bold"
+        android:text="@string/label_valor"
+        android:textColor="@color/dark_green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/formulario_produto_layout_valor_produto"
+        app:layout_constraintStart_toStartOf="@id/formulario_produto_layout_valor_produto" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/formulario_produto_layout_valor_produto"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="35dp"
+        app:endIconMode="clear_text"
+        app:layout_constraintStart_toStartOf="@id/formulario_produto_layout_marca"
+        app:layout_constraintTop_toBottomOf="@+id/formulario_produto_layout_marca">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/formulario_produto_texto_valor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/josefin_sans_bold"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/formulario_produto_titulo_quantidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/josefin_sans_bold"
+        android:text="@string/label_quantidade"
+        android:textColor="@color/dark_green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/formulario_produto_layout_valor_produto"
+        app:layout_constraintTop_toBottomOf="@+id/formulario_produto_layout_valor_produto" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/formulario_produto_fab_mais"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:clickable="true"
+        android:contentDescription="@string/descricao_fab_mais"
+        app:fabSize="mini"
+        app:layout_constraintStart_toEndOf="@+id/formulario_produto_quantidade"
+        app:layout_constraintTop_toTopOf="@+id/formulario_produto_quantidade"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <EditText
+        android:id="@+id/formulario_produto_quantidade"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/formulario_produto_fab_menos"
+        app:layout_constraintTop_toTopOf="@+id/formulario_produto_fab_menos" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/formulario_produto_fab_menos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:contentDescription="@string/descricao_fab_menos"
+        app:fabSize="mini"
+        app:layout_constraintStart_toStartOf="@+id/formulario_produto_titulo_quantidade"
+        app:layout_constraintTop_toBottomOf="@+id/formulario_produto_titulo_quantidade"
+        app:srcCompat="@drawable/ic_baseline_remove_24" />
+
+    <Button
+        android:id="@+id/formulario_produto_btn_cadastra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/labal_btn_cadastrar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

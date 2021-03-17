@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:contentDescription="@string/descricao_appbar_codigo_de_barra"
+        android:icon="@mipmap/bar_code_round"
+        android:title="@string/label_codigo_de_barra"
+        app:showAsAction="always" />
+
+</menu>
