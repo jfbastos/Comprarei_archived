@@ -3,7 +3,7 @@
 
 Este projeto visa auxiliar no dia a dia dos usuários. :house:
 
-Que seja com um simples controle financeira, ou um lembrete do que comprar.
+Que seja com um simples controle financeiro, ou um lembrete do que comprar.
 
 O app Comprarei, nasceu de uma necessidade pessoal em que houvesse uma forma simples e prática de ter listas de compras; Mas que compras? **Qualquer uma!** Que seja mercado, que seja feira, que seja materiais de construção, tudo fica a critério do usuário.
 
