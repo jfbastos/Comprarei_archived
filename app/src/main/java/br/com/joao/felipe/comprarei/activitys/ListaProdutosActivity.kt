@@ -206,7 +206,7 @@ class ListaProdutosActivity : AppCompatActivity() {
                     preencheSumario()
                 }
             }
-            .setNegativeButton("Cancelar") { dialog, id ->
+            .setNegativeButton("Cancelar") { dialog, _ ->
                 dialog.dismiss()
             }
         val alert = builder.create()

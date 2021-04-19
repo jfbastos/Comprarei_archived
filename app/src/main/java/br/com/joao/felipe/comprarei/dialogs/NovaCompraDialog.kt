@@ -46,12 +46,12 @@ class NovaCompraDialog : DialogFragment() {
                         (activity as (Cadastra)).onCadastro(compraNome?.text.toString(), data)
                         dismiss()
                     }
-                } else if (!validaData(compraData?.text?.toString())) {
-                    compraData?.let { data -> Animacoes.notificaErro(botao, data) }
+                } else if (!compraData?.text?.toString()?.let { it1 -> validaData(it1) }!!) {
+                    compraData.let { data -> Animacoes.notificaErro(botao, data) }
                 } else {
                     (activity as (Cadastra)).onCadastro(
                         compraNome?.text.toString(),
-                        compraData?.text.toString()
+                        compraData.text.toString()
                     )
                     dismiss()
                 }
@@ -60,7 +60,7 @@ class NovaCompraDialog : DialogFragment() {
         return alert.create()
     }
 
-    private fun validaData(data: String?): Boolean {
+    private fun validaData(data: String): Boolean {
         val sdf = SimpleDateFormat("dd/MM/yyyy", Locale("pt", "BR"))
         sdf.isLenient = false
         try {
