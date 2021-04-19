@@ -13,7 +13,7 @@
     <string name="hint_data_compra">Data (dd/MM/aaaa)</string>
     <string name="mensagem_data_branco">Em branco, pega a data de hoje</string>
     <string name="error_nome_vazio">Nome inválido</string>
-    <string name="label_btn_ok">Ok</string>
+    <string name="label_btn_ok">OK</string>
     <string name="label_btn_cancelar">Cancelar</string>
     <string name="label_valor_produto">Valor unitário: </string>
     <string name="descricao_fab_nova_compra">Botão nova compra</string>
@@ -24,4 +24,5 @@
     <string name="label_pesquisa">pesquisa</string>
     <string name="descricao_appbar_codigo_de_barra">ler código de barra</string>
     <string name="label_codigo_de_barra">Ler código de barras</string>
+    <string name="sumario_compras">Sumario_compras</string>
 </resources>

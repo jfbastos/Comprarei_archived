@@ -97,7 +97,7 @@ class ListaProdutosActivity : AppCompatActivity() {
         valorTotalProdutos.text = pegaValorTotal()
     }
 
-    private fun pegaValorTotal(): String? {
+    private fun pegaValorTotal(): String {
         var total = BigDecimal("0.0")
         var totalItemBigDecimal: BigDecimal
         var quantidadeItemBigDecimal: BigDecimal

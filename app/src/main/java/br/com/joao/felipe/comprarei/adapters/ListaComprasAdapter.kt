@@ -9,7 +9,7 @@ import android.widget.TextView
 import br.com.joao.felipe.comprarei.R
 import br.com.joao.felipe.comprarei.dao.Compra
 
-class ListaComprasAdapter(private val compras: MutableList<Compra>, private val context: Context) :
+class ListaComprasAdapter(private val compras: MutableList<Compra>, context: Context) :
     BaseAdapter() {
 
     private val inflater: LayoutInflater =

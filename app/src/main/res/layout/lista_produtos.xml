@@ -31,6 +31,7 @@
         android:background="@color/dark_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/sumario_compras"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView

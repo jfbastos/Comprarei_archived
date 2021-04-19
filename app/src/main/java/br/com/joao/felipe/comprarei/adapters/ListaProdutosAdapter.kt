@@ -11,7 +11,7 @@ import br.com.joao.felipe.comprarei.dao.Produto
 import br.com.joao.felipe.comprarei.utils.formatadores.Formata
 
 class ListaProdutosAdapter(
-    private val contexto: Context, private val produtos: MutableList<Produto>
+    contexto: Context, private val produtos: MutableList<Produto>
 ) : BaseAdapter() {
 
     private val inflater: LayoutInflater =

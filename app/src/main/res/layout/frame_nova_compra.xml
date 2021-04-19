@@ -80,7 +80,6 @@
         app:layout_constraintTop_toBottomOf="@+id/formulario_compra_layout_loja" />
 
     <Button
-        android:id="@+id/formulario_compra_btn_cancela"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
