@@ -1,5 +1,5 @@
 # Comprarei
-**Projeto hackathon IESB 2021**
+**Projeto hackathon IESB 2021** - Ainda em desenvolvimento
 
 Este projeto visa auxiliar no dia a dia dos usuários. :house:
 
