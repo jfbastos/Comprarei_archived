@@ -11,7 +11,7 @@
         android:layout_marginBottom="12dp"
         android:fontFamily="@font/josefin_sans_bold"
         android:text="@string/label_nova_compra"
-        android:textColor="@color/dark_green"
+        android:textColor="@color/green"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/formulario_compra_layout_nome"
         app:layout_constraintStart_toStartOf="@+id/formulario_compra_layout_nome" />
@@ -43,6 +43,14 @@
         app:endIconMode="clear_text"
         app:layout_constraintStart_toStartOf="@+id/formulario_compra_layout_nome"
         app:layout_constraintTop_toBottomOf="@+id/formulario_compra_layout_nome">
+
+        <!--        <com.vicmikhailau.maskededittext.MaskedEditText
+                    android:id="@+id/formulario_compra_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/hint_data_compra"
+                    app:mask="##/##/####"
+                    android:inputType="date"/>-->
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/formulario_compra_data"
@@ -80,6 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/formulario_compra_layout_loja" />
 
     <Button
+        android:id="@+id/formulario_compra_btn_cancela"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"

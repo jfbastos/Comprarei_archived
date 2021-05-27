@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Adapter
 import android.widget.ListView
 import android.widget.TextView
@@ -13,8 +14,10 @@ import br.com.joao.felipe.comprarei.adapters.ListaProdutosAdapter
 import br.com.joao.felipe.comprarei.dao.Produto
 import br.com.joao.felipe.comprarei.dao.database
 import br.com.joao.felipe.comprarei.utils.constantes.BANCO_PRODUTOS
+import br.com.joao.felipe.comprarei.utils.constantes.CHAVE_COMPRA
 import br.com.joao.felipe.comprarei.utils.constantes.CHAVE_PRODUTO
 import br.com.joao.felipe.comprarei.utils.formatadores.Formata
+import kotlinx.android.synthetic.main.lista_compras.*
 import kotlinx.android.synthetic.main.lista_produtos.*
 import org.jetbrains.anko.db.*
 import org.jetbrains.anko.toast
@@ -36,8 +39,8 @@ class ListaProdutosActivity : AppCompatActivity() {
         adapter = ListaProdutosAdapter(this, listaProdutos)
         listView.adapter = adapter as ListaProdutosAdapter
 
-        if (intent.hasExtra("idCompra")) {
-            idCompra = intent.getSerializableExtra("idCompra") as Long
+        if (intent.hasExtra(CHAVE_COMPRA)) {
+            idCompra = intent.getSerializableExtra(CHAVE_COMPRA) as Long
         }
 
         listView.setOnItemLongClickListener { _, _, position, _ ->
@@ -83,6 +86,7 @@ class ListaProdutosActivity : AppCompatActivity() {
 
                 listaProdutos.clear()
                 listaProdutos.addAll(listaBanco)
+                mensagemListaVazia(listaProdutos)
                 adapter.notifyDataSetChanged()
                 preencheSumario()
             }
@@ -127,6 +131,7 @@ class ListaProdutosActivity : AppCompatActivity() {
             val indexEdita = listaProdutos.indexOfFirst { it.id == itemRecebido.id }
 
             listaProdutos[indexEdita] = itemRecebido
+            mensagemListaVazia(listaProdutos)
             adapter.notifyDataSetChanged()
             preencheSumario()
         } else {
@@ -157,6 +162,8 @@ class ListaProdutosActivity : AppCompatActivity() {
                             idCompra
                         )
                     )
+                    toast("Produto adicionado à lista")
+                    mensagemListaVazia(listaProdutos)
                     adapter.notifyDataSetChanged()
                 } else {
                     toast("Produto não criado!")
@@ -184,7 +191,8 @@ class ListaProdutosActivity : AppCompatActivity() {
                     intent.putExtra(CHAVE_PRODUTO, item)
                     startActivityForResult(intent, 2)
                 } catch (e: Exception) {
-                    toast("Item não encontrado no banco")
+                    Log.d("Debug", "Produto não encontrado no banco")
+                    toast("Não é possível editar no momento")
                 }
             }
         }
@@ -195,13 +203,14 @@ class ListaProdutosActivity : AppCompatActivity() {
         val idItemDelecao = listaProdutos[position].id
         val builder = AlertDialog.Builder(this@ListaProdutosActivity)
 
-        builder.setMessage("Are you sure you want to Delete?")
+        builder.setMessage("Tem certeza que deseja deletar este produto?")
             .setCancelable(false)
             .setPositiveButton("Confirmar") { _, _ ->
                 database.use {
                     val linhasDeletadas = delete(BANCO_PRODUTOS, "id = {id}", "id" to idItemDelecao)
                     listaProdutos.removeAt(position)
                     Log.d("Debug", "Linhas deletadas: $linhasDeletadas")
+                    mensagemListaVazia(listaProdutos)
                     adapter.notifyDataSetChanged()
                     preencheSumario()
                 }
@@ -211,7 +220,14 @@ class ListaProdutosActivity : AppCompatActivity() {
             }
         val alert = builder.create()
         alert.show()
-
         return true
+    }
+
+    private fun mensagemListaVazia(listaProduto: List<Produto>) {
+        if (listaProduto.isNotEmpty()) {
+            mensagem_lista_vazia_produto.visibility = View.INVISIBLE
+        } else {
+            mensagem_lista_vazia_produto.visibility = View.VISIBLE
+        }
     }
 }

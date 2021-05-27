@@ -16,7 +16,6 @@
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            app:menu="@menu/top_appbar_barcode"
             app:title="@string/app_name" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

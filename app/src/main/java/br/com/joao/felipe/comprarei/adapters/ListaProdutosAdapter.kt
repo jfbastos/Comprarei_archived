@@ -33,11 +33,13 @@ class ListaProdutosAdapter(
         val rowView = inflater.inflate(R.layout.layout_produto, parent, false)
         val nomeProduto = rowView.findViewById<TextView>(R.id.produto_nome)
         val valorProduto = rowView.findViewById<TextView>(R.id.produto_valor)
+        val quantidadeItem = rowView.findViewById<TextView>(R.id.lista_produto_quantidade_item)
         val item = getItem(position)
 
         nomeProduto?.text = item.nome
         valorProduto?.text =
             Formata.formatoDinheiroString(item.valor.filter { it.isDigit() || it == '.' })
+        quantidadeItem?.text = item.quantidade
 
         return rowView
     }

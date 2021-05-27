@@ -10,6 +10,7 @@ import androidx.fragment.app.DialogFragment
 import br.com.joao.felipe.comprarei.R
 import br.com.joao.felipe.comprarei.utils.Animacoes
 import br.com.joao.felipe.comprarei.utils.formatadores.Formata
+import br.com.joao.felipe.comprarei.utils.mascaraData
 import com.google.android.material.textfield.TextInputEditText
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -30,11 +31,16 @@ class NovaCompraDialog : DialogFragment() {
         val alert = AlertDialog.Builder(activity)
 
         val btnConfirma = view?.findViewById<Button>(R.id.formulario_compra_btn_confirma)
+        val btnCancela = view?.findViewById<Button>(R.id.formulario_compra_btn_cancela)
         val compraNome = view?.findViewById<TextInputEditText>(R.id.formulario_compra_nome)
         val compraData = view?.findViewById<TextInputEditText>(R.id.formulario_compra_data)
         val mensagemErro = view?.findViewById<TextView>(R.id.formulario_compra_mensagem_erro)
 
         alert.setView(view)
+
+        if (compraData != null) {
+            mascaraData(compraData)
+        }
 
         btnConfirma?.let { botao ->
             botao.setOnClickListener {
@@ -57,6 +63,11 @@ class NovaCompraDialog : DialogFragment() {
                 }
             }
         }
+
+        btnCancela?.setOnClickListener {
+            dismiss()
+        }
+
         return alert.create()
     }
 
@@ -64,10 +75,15 @@ class NovaCompraDialog : DialogFragment() {
         val sdf = SimpleDateFormat("dd/MM/yyyy", Locale("pt", "BR"))
         sdf.isLenient = false
         try {
-            sdf.parse(data)
+            val data = sdf.parse(data)
+            if (data.after(Date("31/12/2030"))) {
+                return false
+            }
         } catch (e: ParseException) {
             return false
         }
         return true
     }
+
+
 }

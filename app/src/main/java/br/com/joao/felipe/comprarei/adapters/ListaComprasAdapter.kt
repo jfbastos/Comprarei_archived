@@ -31,6 +31,7 @@ class ListaComprasAdapter(private val compras: MutableList<Compra>, context: Con
         val rowView = inflater.inflate(R.layout.layout_compra, parent, false)
         val nomeCompra = rowView.findViewById<TextView>(R.id.compra_nome)
         val dataCompra = rowView.findViewById<TextView>(R.id.compra_data)
+
         val item = getItem(position)
 
         nomeCompra?.text = item.nome

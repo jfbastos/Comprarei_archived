@@ -24,17 +24,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Nome da compra" />
 
-        <TextView
-            android:id="@+id/titulo_produto_total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/josefin_sans_bold"
-            android:text="@string/label_valor_produto"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/produto_valor"
-            app:layout_constraintStart_toStartOf="@+id/produto_nome" />
 
         <TextView
             android:id="@+id/produto_valor"
@@ -46,10 +35,31 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/titulo_produto_total"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/produto_nome"
-            tools:layout_editor_absoluteX="74dp"
             tools:text="R$ 20,00" />
+
+        <TextView
+            android:id="@+id/simbolo_multiplicacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/josefin_sans_bold"
+            android:text=" x "
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/produto_valor"
+            app:layout_constraintStart_toEndOf="@id/produto_valor" />
+
+        <TextView
+            android:id="@+id/lista_produto_quantidade_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/simbolo_multiplicacao"
+            android:fontFamily="@font/josefin_sans_bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/simbolo_multiplicacao"
+            tools:text="02" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

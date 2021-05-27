@@ -3,21 +3,20 @@
     package="br.com.joao.felipe.comprarei">
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_laucher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/launcher_novo_round"
+        android:roundIcon="@mipmap/ic_laucher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Comprarei">
-        <activity android:name=".activitys.FormularioProdutoActivity" />
-        <activity android:name=".activitys.ListaProdutosActivity" />
+
         <activity android:name=".activitys.ListaComprasActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activitys.FormularioProdutoActivity" />
+        <activity android:name=".activitys.ListaProdutosActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
