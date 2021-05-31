@@ -6,12 +6,6 @@
     android:layout_height="match_parent"
     android:textAlignment="center">
 
-    <include
-        layout="@layout/custom_appbar_produto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,14 +21,14 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/formulario_produto_layout_nome_produto"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="250dp"
+        android:layout_width="380dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17000002">
+        app:layout_constraintVertical_bias="0.15">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/formulario_produto_texto_nome"
@@ -68,7 +62,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/formulario_produto_layout_marca"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="250dp"
+        android:layout_width="380dp"
         android:layout_height="60dp"
         android:layout_marginTop="35dp"
         app:endIconMode="clear_text"

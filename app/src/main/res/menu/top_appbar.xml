@@ -3,9 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/botao_pesquisa"
         android:contentDescription="@string/descricao_appbar_search"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/label_pesquisa"
-        app:showAsAction="always" />
+        app:showAsAction="collapseActionView|always"
+        app:actionViewClass="android.widget.SearchView" />
 
 </menu>

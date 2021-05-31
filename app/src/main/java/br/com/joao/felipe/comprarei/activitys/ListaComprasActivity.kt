@@ -1,13 +1,15 @@
 package br.com.joao.felipe.comprarei.activitys
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import android.view.*
 import android.widget.Adapter
 import android.widget.ListView
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import br.com.joao.felipe.comprarei.R
 import br.com.joao.felipe.comprarei.adapters.ListaComprasAdapter
@@ -17,7 +19,8 @@ import br.com.joao.felipe.comprarei.dialogs.NovaCompraDialog
 import br.com.joao.felipe.comprarei.utils.constantes.BANCO_COMPRAS
 import br.com.joao.felipe.comprarei.utils.constantes.BANCO_PRODUTOS
 import br.com.joao.felipe.comprarei.utils.constantes.CHAVE_COMPRA
-import kotlinx.android.synthetic.main.custom_appbar_acoes_compra.*
+import kotlinx.android.synthetic.main.layout_compra.*
+import kotlinx.android.synthetic.main.layout_compra.view.*
 import kotlinx.android.synthetic.main.lista_compras.*
 import org.jetbrains.anko.db.*
 import org.jetbrains.anko.toast
@@ -29,12 +32,11 @@ class ListaComprasActivity : AppCompatActivity(), NovaCompraDialog.Cadastra {
     private var idCompra: Long = -1L
 
 
-    @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lista_compras)
 
-        setSupportActionBar(findViewById(R.id.toolbar_acao_compra))
+        setSupportActionBar(findViewById(R.id.custom_appbar))
 
         listView = findViewById(R.id.list_view_compras)
 
@@ -46,7 +48,6 @@ class ListaComprasActivity : AppCompatActivity(), NovaCompraDialog.Cadastra {
         }
 
         listView.setOnItemLongClickListener { _, _, position, _ ->
-            setSupportActionBar(findViewById(R.id.toolbar_acao_compra))
             deletaProduto(position)
             return@setOnItemLongClickListener true
         }
@@ -77,6 +78,59 @@ class ListaComprasActivity : AppCompatActivity(), NovaCompraDialog.Cadastra {
                 listaCompras.addAll(listaCompra)
                 adapter.notifyDataSetChanged()
             }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.top_appbar, menu)
+
+        val searchView = menu.findItem(R.id.botao_pesquisa).actionView as SearchView
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
+        searchView.setBackgroundColor(getColor(R.color.green))
+        searchView.focusable = View.FOCUSABLE_AUTO
+        searchView.isIconified = false
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText.isNullOrBlank() || newText.isNullOrEmpty()) {
+                    listView.adapter = ListaComprasAdapter(listaCompras, this@ListaComprasActivity)
+                } else {
+                    val itens =
+                        listaCompras.filter { it.nome.contains(newText) || it.data.contains(newText) }
+                    listView.adapter =
+                        ListaComprasAdapter(itens as MutableList<Compra>, this@ListaComprasActivity)
+                    Log.d("Compra", "$itens")
+                }
+                return false
+            }
+        })
+
+        val searchMenuItem = menu.findItem(R.id.botao_pesquisa)
+        searchMenuItem.setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
+            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+                return true
+            }
+
+            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+                listView.adapter = ListaComprasAdapter(listaCompras, this@ListaComprasActivity)
+                return true
+            }
+
+        })
+        return true
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.botao_pesquisa -> {
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 

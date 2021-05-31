@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/lista_produto_include"
-        layout="@layout/custom_appbar_pesquisa"
+        layout="@layout/custom_appbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
