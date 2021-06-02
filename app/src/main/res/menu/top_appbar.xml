@@ -3,6 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/acao_editar"
+        android:icon="@drawable/ic_acao_editar"
+        android:title="Editar compra"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/acao_deletar"
+        android:icon="@drawable/ic_acao_deletar"
+        android:title="Deletar compra"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/botao_pesquisa"
         android:contentDescription="@string/descricao_appbar_search"
         android:icon="@drawable/ic_baseline_search_24"
